@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../../components/Button';
 import { Container, BtnContainer, SubContainer } from './style';
+import { ReactComponent as ArrowLeft } from '../../images/arrowLeft.svg';
+import { ReactComponent as ArrowRight} from '../../images/arrowRight.svg';
 
 interface IPokedex {
   id: number;
@@ -54,13 +56,18 @@ const Home = () => {
         ))}
       </SubContainer>
       <BtnContainer>
-        <Button
+        <button
           type="button"
           onClick={ onClickpPreviousPokemon }
-          label="Previous Pokemon"
-        />
-        <Button type="button" onClick={ onClickNextPokemon } label="Next Pokemon" />
-      </BtnContainer>
+          >
+          <ArrowLeft/>
+        </button>
+        <button
+          type="button"
+          onClick={ onClickNextPokemon }
+          >
+          <ArrowRight/>
+        </button>      </BtnContainer>
     </Container>
   );
 };
