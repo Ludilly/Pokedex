@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../../components/Button';
+import { Container, BtnContainer, SubContainer } from './style';
 
 interface IPokedex {
   id: number;
@@ -35,30 +36,32 @@ const Home = () => {
 
   const onClickNextPokemon = () => {
     setPokeId(pokeId + 1);
-    // console.log(pokemon);
   };
 
   const onClickpPreviousPokemon = () => {
     setPokeId(pokeId - 1);
-    // console.log(pokemon);
   };
 
   return (
-    <>
+    <Container>
       <h1>Pokedex</h1>
-      <span>{ pokemon.id }</span>
-      <span>{ pokemon.name }</span>
-      {pokemon.types.map((type) => (
-        <p>{ type.type.name }</p>
-      ))}
-      <img src={ pokemon.sprites.front_default } alt={ pokemon.name } />
-      <Button
-        type="button"
-        onClick={ onClickpPreviousPokemon }
-        label="Previous Pokemon"
-      />
-      <Button type="button" onClick={ onClickNextPokemon } label="Next Pokemon" />
-    </>
+      <SubContainer>
+        <span>{ pokemon.id }</span>
+        <span>{ pokemon.name }</span>
+        <img src={ pokemon.sprites.front_default } alt={ pokemon.name } />
+        {pokemon.types.map((type) => (
+          <p>{ type.type.name }</p>
+        ))}
+      </SubContainer>
+      <BtnContainer>
+        <Button
+          type="button"
+          onClick={ onClickpPreviousPokemon }
+          label="Previous Pokemon"
+        />
+        <Button type="button" onClick={ onClickNextPokemon } label="Next Pokemon" />
+      </BtnContainer>
+    </Container>
   );
 };
 
