@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, BtnContainer, SubContainer } from './style';
 import { ReactComponent as ArrowLeft } from '../../images/arrowLeft.svg';
-import { ReactComponent as ArrowRight} from '../../images/arrowRight.svg';
+import { ReactComponent as ArrowRight } from '../../images/arrowRight.svg';
+import pokeLogo from '../../images/pokemon-logo.png';
 
 interface IPokedex {
   id: number;
@@ -27,7 +28,6 @@ const Home = () => {
 
   const fetchPokemon = async () => {
     const result = await fetch(url).then((response) => response.json());
-    console.log(pokemon);
     setPokemon(result);
   };
 
@@ -45,28 +45,31 @@ const Home = () => {
 
   return (
     <Container>
-      <h1>Pokedex</h1>
-      <SubContainer>
-        <span>{ pokemon.id }</span>
-        <span>{ pokemon.name }</span>
-        <img src={ pokemon.sprites.front_default } alt={ pokemon.name } />
-        {pokemon.types.map((type) => (
-          <p>{ type.type.name }</p>
-        ))}
-      </SubContainer>
-      <BtnContainer>
-        <button
-          type="button"
-          onClick={ onClickpPreviousPokemon }
+      <>
+        <img src={ pokeLogo } alt="pokelogo" />
+        <SubContainer>
+          <span>{ pokemon.id }</span>
+          <span>{ pokemon.name }</span>
+          <img src={ pokemon.sprites.front_default } alt={ pokemon.name } />
+          {pokemon.types.map((type) => (
+            <p>{ type.type.name }</p>
+          ))}
+        </SubContainer>
+        <BtnContainer>
+          <button
+            type="button"
+            onClick={ onClickpPreviousPokemon }
           >
-          <ArrowLeft/>
-        </button>
-        <button
-          type="button"
-          onClick={ onClickNextPokemon }
+            <ArrowLeft />
+          </button>
+          <button
+            type="button"
+            onClick={ onClickNextPokemon }
           >
-          <ArrowRight/>
-        </button>      </BtnContainer>
+            <ArrowRight />
+          </button>
+        </BtnContainer>
+      </>
     </Container>
   );
 };

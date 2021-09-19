@@ -5,6 +5,12 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   background-color: red;
+  height: 100vh;
+  justify-content: center;
+
+  img{
+    width: 150px;
+  }
 
   button {
     margin-left: 16px;
@@ -25,6 +31,7 @@ export const SubContainer = styled.div`
   padding: 20px;
   border-radius: 5px;
   background-color: white;
+  margin-top: 16px;
 `;
 
 export const BtnContainer = styled.div`
