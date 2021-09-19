@@ -5,6 +5,11 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   background-color: red;
+
+  button:hover {
+    transform: scale(1.1);
+    transition: all 0.5s; 
+  }
 `;
 
 export const SubContainer = styled.div`

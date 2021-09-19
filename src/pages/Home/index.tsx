@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Button from '../../components/Button';
 import { Container, BtnContainer, SubContainer } from './style';
 import { ReactComponent as ArrowLeft } from '../../images/arrowLeft.svg';
 import { ReactComponent as ArrowRight} from '../../images/arrowRight.svg';
