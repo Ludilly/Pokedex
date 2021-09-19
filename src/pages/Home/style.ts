@@ -6,6 +6,11 @@ export const Container = styled.section`
   align-items: center;
   background-color: red;
 
+  button {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
   button:hover {
     transform: scale(1.1);
     transition: all 0.5s; 
@@ -25,5 +30,5 @@ export const SubContainer = styled.div`
 export const BtnContainer = styled.div`
   display:flex;
   flex-direction: row;
-  padding: 16px;
+  margin: 16px 0px 16px 0px;
 `;
