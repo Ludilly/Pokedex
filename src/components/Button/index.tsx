@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Children } from 'react';
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  label?: string;
+  children?: any;
   className?: string;
 };
 
 export default function Button({
-  label,
+  children,
   onClick,
-  className
+  className,
 }: ButtonProps) {
   return (
     <button
@@ -16,7 +16,7 @@ export default function Button({
       type="button"
       onClick={ onClick }
     >
-      { label }
+      { children }
     </button>
   );
 }

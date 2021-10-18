@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   background-color: red;
   height: 100vh;
@@ -24,6 +24,12 @@ export const Container = styled.div`
 `;
 
 export const SubContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const LeftContainer = styled.div`
   border: solid black 2px;
   display: flex;
   flex-direction: column;
@@ -32,6 +38,33 @@ export const SubContainer = styled.div`
   border-radius: 5px;
   background-color: white;
   margin-top: 16px;
+  margin-right: 50px;
+`;
+
+export const RightContainer = styled.div`
+  border: solid black 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 16px;
+
+  span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  article {
+    display: flex;
+    flex-direction: row;
+    
+    p {
+      margin-right: 5px;
+    }
+  }
 `;
 
 export const BtnContainer = styled.div`

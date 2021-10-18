@@ -5,6 +5,7 @@ import { ReactComponent as ArrowRight } from '../../images/arrowRight.svg';
 import { ReactComponent as Search } from '../../images/search.svg';
 import pokeLogo from '../../images/pokemon-logo.png';
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 interface IPokedex {
   id: number;
@@ -13,6 +14,8 @@ interface IPokedex {
   sprites: {
     front_default: string;
   };
+  abilities: any[];
+  stats: any[];
 }
 
 const Home = () => {
@@ -25,6 +28,8 @@ const Home = () => {
       sprites: {
         front_default: '',
       },
+      abilities: [],
+      stats: [],
     },
   );
   const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
@@ -40,7 +45,7 @@ const Home = () => {
     setPokemon(result);
   };
 
-    useEffect(() => {
+  useEffect(() => {
     fetchPokemon();
   }, [pokeId]);
 
@@ -54,40 +59,67 @@ const Home = () => {
 
   return (
     <S.Container>
-      <>
+      <S.SubContainer>
         <img src={ pokeLogo } alt="pokelogo" />
-        <S.SubContainer>
+        <S.LeftContainer>
           <S.SearchContainer>
-          <Input
-            placeholder="Type your pokemon name"
-            onChange={ (event) => setPokeName(event.target.value) }
-          />
-          <button onClick={fetchPokemonByName}><Search/></button>
+            <Input
+              placeholder="Type your pokemon name"
+              onChange={ (event) => setPokeName(event.target.value) }
+            />
+            <Button onClick={ fetchPokemonByName }>
+              <Search />
+            </Button>
           </S.SearchContainer>
-          <span>{ pokemon.id }</span>
-          <span>{ pokemon.name }</span>
+          <span>
+            { pokemon.id }
+          </span>
+          <span>
+            { pokemon.name }
+          </span>
           <img src={ pokemon.sprites.front_default } alt={ pokemon.name } />
           {pokemon.types.map((type) => (
             <p key={ type.name }>
               { type.type.name }
             </p>
           ))}
-        </S.SubContainer>
+        </S.LeftContainer>
         <S.BtnContainer>
-          <button
+          <Button
             type="button"
             onClick={ onClickpPreviousPokemon }
           >
             <ArrowLeft />
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             onClick={ onClickNextPokemon }
           >
             <ArrowRight />
-          </button>
+          </Button>
         </S.BtnContainer>
-      </>
+      </S.SubContainer>
+      <S.RightContainer>
+        <section>
+          <span>
+            { pokemon.abilities.map((ability) => (
+              <p key={ ability.name }>
+                { ability.ability.name }
+              </p>
+            )) }
+          </span>
+          { pokemon.stats.map((stat) => (
+            <article>
+              <p key={ stat.name }>
+                { stat.stat.name }:
+              </p>
+              <p key={ stat.base_stat }>
+                { stat.base_stat }
+              </p>
+            </article>
+          )) }
+        </section>
+      </S.RightContainer>
     </S.Container>
   );
 };
