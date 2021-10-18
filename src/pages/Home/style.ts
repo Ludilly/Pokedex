@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,4 +38,29 @@ export const BtnContainer = styled.div`
   display:flex;
   flex-direction: row;
   margin: 16px 0px 16px 0px;
+`;
+
+export const SearchContainer = styled.section`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border: solid 1px black;
+  border-radius: 20px;
+  height: 30px;
+  margin-bottom: 20px;
+
+  input {
+    border: none;
+    margin-left: 5px;
+  }
+  input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+
+  button {
+    border: none;
+    background-color: #fff;
+  }
 `;
